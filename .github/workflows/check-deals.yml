@@ -1,0 +1,30 @@
+name: Check local Leboncoin data
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run local rule-based monitor
+        run: python -m src.main
+      - name: Persist report and state
+        run: |
+          git config user.name 'deal-finder-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add data/state.json data/good_deals.md
+          git diff --cached --quiet || git commit -m "chore: update local deal report"
+          git push
