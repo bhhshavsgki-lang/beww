@@ -7,7 +7,7 @@
   },
   "searches": [
     {
-      "name": "iPhone 14 128 Go",
+      "name": "iPhone",
       "keywords": ["iPhone 14", "128 Go"],
       "category": "Téléphones & Objets connectés",
       "max_price_eur": 350,
@@ -16,7 +16,7 @@
       "avoid": ["HS", "pour pièces", "bloqué", "iCloud", "recherche", "arnaque", "paiement avant"]
     },
     {
-      "name": "PlayStation 5",
+      "name": "PlayStation",
       "keywords": ["PS5", "PlayStation 5"],
       "category": "Consoles",
       "max_price_eur": 400,
